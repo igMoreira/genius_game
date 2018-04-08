@@ -147,7 +147,21 @@ void executeUserTurn(){
 }
 
 void executeGameCleared(){
-  
+  for(int j=0; j <20; j++){
+    for(int i=0; i < QTD_LEDS; i++){
+      digitalWrite(i+2, HIGH);
+      delay(200*((j%3)*0.25));
+      digitalWrite(i+2, LOW);
+      delay(200*((j%3)*0.25));
+    }
+    for(int i=(QTD_LEDS-1); i >= 0; i--){
+      digitalWrite(i+2, HIGH);
+      delay(200*((j%3)*0.25));
+      digitalWrite(i+2, LOW);
+      delay(200*((j%3)*0.25));
+    }
+  }
+  currentState = UNDEFINED;
 }
 
 void executeGameOver(){
